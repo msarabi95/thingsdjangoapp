@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Things List{% endblock title %}
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Things List</li>
+        </ol>
+    </nav>
+
+    <br>
+
+    <h2>Thing List</h2>
+    <div class="list-group list-group-flush">
+        {% for thing in thing_list %}
+        <a href="{% url 'django_app:thing-detail' thing.pk %}"
+           class="list-group-item list-group-item-action">
+            {{ thing.name}}
+        </a>
+        {% endfor %}
+    </div>
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Thing Detail: {{ thing.name }}{% endblock title %}
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{% url 'django_app:thing-list' %}">Things List</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">{{ thing.name }}</li>
+        </ol>
+    </nav>
+
+    <br>
+
+    <h2>Thing Detail</h2>
+
+    <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 class="card-title position-relative">
+                {{ thing.name }}
+                <span class="position-absolute top-50 end-0 translate-middle-y badge rounded-pill bg-secondary">
+                    {{ thing.pk }}
+                    <span class="visually-hidden">identification number</span>
+                </span>
+            </h5>
+
+            <hr>
+
+            <p class="card-text">Some placeholder description.</p>
+        </div>
+    </div>
+{% endblock content %}
